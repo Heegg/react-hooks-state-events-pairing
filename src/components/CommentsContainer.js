@@ -8,7 +8,8 @@ function CommentsContainer({ comments }) {
       <h2>{comments.length} Comments</h2>
 
       {comments.map(commentList => 
-      <Comment key={commentList.id} comment={commentList}/>
+      <Comment 
+      key={commentList.id} comment={commentList} />
       )}
       
 

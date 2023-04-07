@@ -3,10 +3,17 @@ import Video from "./Video.js"
 import InfoSection from "./InfoSection.js"
 import LikeButtons from "./LikeButtons.js"
 import CommentsContainer from "./CommentsContainer.js"
+import { useState } from "react";
 
 
 function App() {
   console.log("Here's your data:", video);
+
+  const [ isHide, setIsHide ]= useState(true)
+
+  const handleHideClick = () => {
+    setIsHide(!isHide)
+  }
 
   return (
     <div className="App">
@@ -16,7 +23,11 @@ function App() {
       title={video.title} views={video.views} createdAt={video.createdAt} header="React Today and " />
       <LikeButtons 
       upvotes={video.upvotes} downvotes={video.downvotes}/>
+        <button onClick={handleHideClick}>
+          { isHide ? "Hide" : "Show" } Comments
+        </button>
       <hr />
+        {isHide ? <CommentsContainer comments={video.comments}/> : null}
       <CommentsContainer 
       comments={video.comments}/>
     </div>

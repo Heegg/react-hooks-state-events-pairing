@@ -1,13 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function LikeButtons({ upvotes, downvotes }) {
+
+  const [ upNumber, setUpNumber ] = useState(upvotes) 
+  const [ downNumber, setDownNumber ] = useState(downvotes)
+  
+
+  function handleUpvotes() {
+    setUpNumber(upNumber + 1)
+  }
+
+  function handleDownvotes() {
+    setDownNumber(downNumber + 1)
+  }
+
   return (
     <>
         <p>
-        <button>{upvotes} 👍</button>
-        <button>{downvotes} 👎</button>
+        <button onClick={handleUpvotes}>{upNumber} 👍</button>
+        <button onClick={handleDownvotes}>{downNumber} 👎</button>
         </p>
-        <p><button>Hide Comments</button></p>
     </>
   )
 }

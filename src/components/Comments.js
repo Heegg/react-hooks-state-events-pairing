@@ -6,6 +6,8 @@ function Comments({ comment }) {
     <div>
       <h2>{comment.user}</h2>
       <p>{comment.comment}</p>
+      {/* <button>{comment.upvotes} 👍</button>
+      <button>{comment.downvotes} 👎</button> */}
     </div>
   )
 }
